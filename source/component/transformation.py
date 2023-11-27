@@ -10,16 +10,17 @@ import os
 import sys
 import numpy as np
 from utils import trans_data_pickle
+from source.component import ingestion
 
 @dataclass 
-class SavingPath:
+class DataTransConfig:
     savingpath:str=os.path.join("Mypath","Saved.pkl")
 
-class DaraTransConfig:
+class DataTrans:
     def __init__(self):
-        self.transform=SavingPath()
+        self.transform=DataTransConfig()
 
-    def Process(self):
+    def Process(self,data:str):
         
         try:
             your_df=pd.read_csv("C:\Users\LENOVO-PC\Videos\car-sales-extended-missing-data.csv")
@@ -40,11 +41,11 @@ class DaraTransConfig:
             raise CustomException(e,sys)
         
     
-    def read_train_test(self,train_path,test_path):
+    def read_train_test(self,train_path:str,test_path:str):
         try:
             preprocessor_obj=self.Process()
-            train_csv=pd.read_csv()
-            test_csv=pd.read_csv()
+            train_csv=pd.read_csv(train_path)
+            test_csv=pd.read_csv(test_path)
             target_feat_test=test_csv["Price"]
             target_feat_train=test_csv["Price"]
 
@@ -53,13 +54,24 @@ class DaraTransConfig:
             input_trans_train=preprocessor_obj.fit_transform(features)
             input_trans_test=preprocessor_obj.transform(features)
 
+            # now lets join the data back into features + target but this time we'd use array
             train_arr=np.c_[input_trans_train, np.array(target_feat_train)]
             test_arr=np.c_[input_trans_test, np.array(target_feat_test)]
 
-            logging.info("saved")
-
             trans_data_pickle(self.transform.savingpath,preprocessor_obj)
+            logging.info("saved")
+            
             return (train_arr,test_arr,self.transform.savingpath)
+        
+        except Exception as e:
+                raise CustomException(e,sys)
+        
+    
+if __name__=="__main__":
+    object_1=DataTrans()
+    object_1.Process()
+    object_1.read_train_test()
+
 
 
 

@@ -1,7 +1,5 @@
-pandas 
+pandas
 numpy
 dill
 catboost
 seaborn
-scikit-learn
-# -e .

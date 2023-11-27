@@ -7,27 +7,34 @@ import sys
 from source.logger import logging
 from source.exception import CustomException
 from sklearn.model_selection import train_test_split
+import numpy as np
+from source.component.transformation import DataTransConfig
+from source.component.transformation import DataTrans
+
+from source.component.model_trainer import ModelTrainerConfig
+from source.component.model_trainer import ModelTrainer
+
 
 
 
 # our mission is to take a csv file then split it into train and split csv respectively
 @dataclass
-class DataIngestionPaths:
+class DataIngestionConfig:
     train_path=os.path.join(os.getcwd(),"Machine Learning Project", "train.csv")
     test_path=os.path.join(os.getcwd(),"Machine Learning Project", "test.csv")
     real_path=os.path.join(os.getcwd(),"Machine Learning Project", "real.csv")
 
-class DataIngestionConfig:
+class DataIngestion:
     def __init__(self):
-        self.config=DataIngestionPaths()
+        self.config=DataIngestionConfig()
     
-    def DataIngestionProcess(self):
+    def DataIngestionProcess(self,mydata:str):
         try:
 
-            real_data = pd.read_csv(r"C:\Users\LENOVO-PC\Videos\car-sales-extended-missing-data.csv")
+            real_data = pd.read_csv(mydata)
             logging.info("just finished reading the raw data")
 
-            # now lets use the train test split to seperate our data into train and test
+            # now lets use the train test split to  seperate our data into train and test
             train_data,test_data=train_test_split(real_data,random_state=43,test_size=0.3)
             logging.info("data sucessfully splited")
 
@@ -52,12 +59,18 @@ class DataIngestionConfig:
 
 
 if __name__=="__main__":
-    Paths_obj=DataIngestionConfig()
-    Paths_obj.DataIngestionProcess()
+    DataIngestion_obj=DataIngestion()
+    train_path,test_path,_=DataIngestion.DataIngestionProcess(".\car-sales-extended-missing-data.csv")
 
 
+    # trans_obj=DataTrans()
+    # train_arr,test_arr,_=trans_obj.read_train_test(train_path,test_path)
 
 
+    # model_trainer_obj=ModelTrainer()
+    # model_trainer_obj.ModelTrainerProcess(train_arr,test_arr)
 
 
-        
+    
+
+
