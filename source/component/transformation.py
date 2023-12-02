@@ -9,8 +9,10 @@ import pandas as pd
 import os
 import sys
 import numpy as np
-from utils import trans_data_pickle
-from source.component import ingestion
+from source.utils import trans_data_pickle
+from source.component.ingestion import ingestion
+
+
 
 @dataclass 
 class DataTransConfig:
@@ -20,10 +22,10 @@ class DataTrans:
     def __init__(self):
         self.transform=DataTransConfig()
 
-    def Process(self,data:str):
+    def Process(self):
         
         try:
-            your_df=pd.read_csv("C:\Users\LENOVO-PC\Videos\car-sales-extended-missing-data.csv")
+            your_df=pd.read_csv("C:\\Users\\LENOVO-PC\\Videos\\Project001\\car-sales-extended-missing-data.csv")
             numerical_columns=["Doors","Odometer (KM)"]
             categorical_column=["Make","Colour"]
             logging.info("Categorical and numerical data identified!")
@@ -34,7 +36,7 @@ class DataTrans:
             cat_pipeline=Pipeline(steps=[
                 ("imputer",SimpleImputer(strategy="most-frequent")),("encoder",OneHotEncoder()),("standard",StandardScaler(with_mean=False))
             ])
-            preprocesor=ColumnTransformer(("numerical",num_pipeline,numerical_columns),("categorical"),cat_pipeline,categorical_column)
+            preprocesor=ColumnTransformer([("numerical",num_pipeline,numerical_columns),("categorical",cat_pipeline,categorical_column)])
             return preprocesor
         
         except Exception as e:
@@ -66,13 +68,12 @@ class DataTrans:
         except Exception as e:
                 raise CustomException(e,sys)
         
+         
     
 if __name__=="__main__":
     object_1=DataTrans()
-    object_1.Process()
-    object_1.read_train_test()
-
-
+    process_obj=object_1.Process()
+    train_arr,test_arr,_=object_1.read_train_test()
 
 
 
