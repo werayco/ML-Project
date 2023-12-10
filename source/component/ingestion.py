@@ -11,8 +11,8 @@ import numpy as np
 from source.component.transformation import DataTransConfig
 from source.component.transformation import DataTrans
 
-from source.component.model_trainer import ModelTrainerConfig
-from source.component.model_trainer import ModelTrainer
+# from source.component.model_trainer import ModelTrainerConfig
+# from source.component.model_trainer import ModelTrainer
 
 
 
@@ -46,9 +46,9 @@ class DataIngestion:
             os.makedirs(path_test_01_MLP,exist_ok=True)
 
             # now lets save the train data into a csv file
-            train_data.to_csv(self.config.train_path,index=False,header=False)
-            test_data.to_csv(self.config.test_path,index=False,header=False)
-            real_data.to_csv(self.config.real_path,index=False,header=False)
+            train_data.to_csv(self.config.train_path,index=False,header=True)
+            test_data.to_csv(self.config.test_path,index=False,header=True)
+            real_data.to_csv(self.config.real_path,index=False,header=True)
             logging.info("sucessfully saved the train data,test data and raw data as csv's directory")
 
         except Exception as e:
@@ -64,7 +64,7 @@ if __name__=="__main__":
 
 
     trans_obj=DataTrans()
-    train_arr,test_arr,_=trans_obj.read_train_test(train_path,test_path)
+    trans_obj.read_train_test(train_path,test_path)
 
 
     # model_trainer_obj=ModelTrainer()
