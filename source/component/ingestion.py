@@ -11,8 +11,8 @@ import numpy as np
 from source.component.transformation import DataTransConfig
 from source.component.transformation import DataTrans
 
-# from source.component.model_trainer import ModelTrainerConfig
-# from source.component.model_trainer import ModelTrainer
+from source.component.model_trainer import ModelTrainerConfig
+from source.component.model_trainer import ModelTrainer
 
 
 
@@ -64,11 +64,11 @@ if __name__=="__main__":
 
 
     trans_obj=DataTrans()
-    trans_obj.read_train_test(train_path,test_path)
+    train_arr,test_arr,_=trans_obj.read_train_test(train_path,test_path)
 
 
-    # model_trainer_obj=ModelTrainer()
-    # model_trainer_obj.ModelTrainerProcess(train_arr,test_arr)
+    model_trainer_obj=ModelTrainer()
+    print(model_trainer_obj.ModelTrainerProcess(train_arr,test_arr))
 
 
     

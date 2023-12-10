@@ -10,14 +10,10 @@ import os
 import sys
 import numpy as np
 from source.utils import trans_data_pickle
-# from source.component.ingestion import ingestion
-
-
-
 
 @dataclass 
 class DataTransConfig:
-    savingpath:str=os.path.join("Mypath","Saved.pkl")
+    savingpath:str=os.path.join("PickleFiles","Preprocessor.pkl")
 
 class DataTrans:
     def __init__(self):
@@ -27,7 +23,7 @@ class DataTrans:
         
         try:
             # your_df=pd.read_csv("C:\\Users\\LENOVO-PC\\Videos\\Project001\\car-sales-extended-missing-data.csv")
-            numerical_columns=["Doors","Odometer (KM)"]
+            numerical_columns=["Doors","Odometer (KM)","Price"]
             categorical_column=["Make","Colour"]
             logging.info("Categorical and numerical data identified!")
             # or we can get your desired by usng
@@ -38,6 +34,7 @@ class DataTrans:
                 ("imputer",SimpleImputer(strategy="most_frequent")),("encoder",OneHotEncoder()),("standard",StandardScaler(with_mean=False))
             ])
             preprocesor=ColumnTransformer([("numerical",num_pipeline,numerical_columns),("categorical",cat_pipeline,categorical_column)])
+
             return preprocesor
         
         except Exception as e:
@@ -62,8 +59,8 @@ class DataTrans:
             preprocessor_obj=self.Process()
 
             # transformming the respective dataframes
-            input_trans_train=preprocessor_obj.fit_transform(features_train)
-            input_trans_test=preprocessor_obj.transform(features_test)
+            input_trans_train=preprocessor_obj.fit_transform(train_csv)
+            input_trans_test=preprocessor_obj.transform(test_csv)
 
             # now lets join the data back into features + target but this time we'd use array
             train_array=np.c_[input_trans_train,np.array(target_feat_train)]
@@ -71,7 +68,7 @@ class DataTrans:
 
             # 
             trans_data_pickle(self.transform.savingpath,preprocessor_obj)
-            logging.info("saved")
+            logging.info("Succesfully saved Preprocessor Pickle file in the 'PickleFiles' Directory")
             
             return (train_array,
                     test_array,
