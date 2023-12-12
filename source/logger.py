@@ -1,20 +1,19 @@
 import logging
-from datetime import datetime 
+from datetime import datetime
 import os
 
-log_file_name=f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
+log_file_name = f"{datetime.now().strftime('%m_%d_%Y_%H_%M_%S')}.log"
 # the log directory
-log_path = os.path.join(os.getcwd(),"logs",log_file_name)
-os.makedirs(log_path,exist_ok=True)
+log_path = os.path.join(os.getcwd(), "logs")
+os.makedirs(log_path, exist_ok=True)
 
-log_files=os.path.join(log_path,log_file_name)
+log_files = os.path.join(log_path, log_file_name)
 
 logging.basicConfig(
     filename=log_files,
     level=logging.INFO,
-    format="[ %(asctime)s ] %(lineo)d %(name)s - %(levelname)s - %(message)s",
+    format="[%(asctime)s] %(lineno)d %(name)s - %(levelname)s - %(message)s",
 )
 
-
-if __name__=="__main__":
+if __name__ == "__main__":
     logging.info("we are here")

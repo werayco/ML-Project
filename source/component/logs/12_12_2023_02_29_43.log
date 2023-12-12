@@ -1,0 +1,7 @@
+[2023-12-12 02:29:45,120] 35 root - INFO - Data frame read successfully!
+[2023-12-12 02:29:45,120] 39 root - INFO - Using train_test_split to split the data..
+[2023-12-12 02:29:45,122] 41 root - INFO - Data Splitted successfully!
+[2023-12-12 02:29:45,122] 46 root - INFO - creating the MLP folder for train and test
+[2023-12-12 02:29:45,122] 50 root - INFO - Saving the respective train and test dataframe to csv...
+[2023-12-12 02:29:45,128] 55 root - INFO - sucessfully saved the train data,test data and raw data as csv's in the MLP directory!
+[2023-12-12 02:29:45,251] 27 root - INFO - Categorical and numerical data identified!

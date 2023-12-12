@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Details Form</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <form action="{{ url_for('Predictor')}}" method="post" class="car-form">
+        <label for="doors">Priceperweek:</label>
+        <input type="number" id="Priceperweek" name="Priceperweek" required>
+        
+        <label for="odometer">Population:</label>
+        <input type="number" id="Population" name="Population" required placeholder="insert your Population">
+
+        <label for="Monthlyincome">Monthlyincome</label>
+        <input type="number" id="Monthlyincome" name="Monthlyincome" required placeholder="insert your Monthlyincome">
+
+        <label for="Averageparkingpermonth">Averageparkingpermonth:</label>
+        <input type="number" id="Averageparkingpermonth" name="Averageparkingpermonth" required placeholder="insert your Avpm">
+
+
+        <input type="submit" value="Submit">
+
+        The price of the car is: {{predicted}}
+    </form>
+</body>
+</html>

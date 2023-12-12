@@ -1,0 +1,4 @@
+[2023-12-11 10:22:45,830] 12 root - INFO - get request granted
+[2023-12-11 10:22:45,838] 96 werkzeug - WARNING -  * Debugger is active!
+[2023-12-11 10:22:45,843] 96 werkzeug - INFO -  * Debugger PIN: 834-060-160
+[2023-12-11 10:22:51,112] 96 werkzeug - INFO -  * Detected change in 'C:\\Users\\LENOVO-PC\\Videos\\Project001\\app.py', reloading

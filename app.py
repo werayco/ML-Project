@@ -1,29 +1,39 @@
 from flask import Flask,render_template,jsonify,request,url_for
 import numpy as np
 import pandas as pd
+from source.exception import CustomException
 from source.logger import logging
-from source.pipeline.predict_pipeline import DataFrameCreator,Predict
+import sys
+from source.pipeline.predict_pipeline import CustomData,PredictPipeline
 
 # intialzing the flask to this script
-app=Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URL"]="sqlite://myname.db"
+application=Flask(__name__)
+app = application
 
-@app.route("")
-def index_html():
+logging.info("get request granted")
+
+@app.route('/')
+def index():
     return render_template("index.html")
 
-@app.route("predictor",methods=["POST","GET"])
-def predictor():
-    if request.method=="GET":
-        return render_template("index.html")
-    elif request.method=="POST":
-        age=request.form.get("age")
-        sex = request.form.get("sex")
-        name=request.form.get("name")
-        height=request.form.get("height")
-        data_001=DataFrameCreator(age=age,sex=sex,name=name,height=height)
-        pred=data_001.DataFrame()
 
+@app.route("/predictdata",methods=["GET","POST"])
+def Predictor():
+        if request.method=="GET":
+            return render_template("index.html")
+        else:
+            data_001=CustomData(Priceperweek=request.form.get("Priceperweek"),Population = request.form.get("Population"),Monthlyincome=request.form.get("Montlyincome"),
+            Averageparkingpermonth=request.form.get("Averageparkingpermonth"))
+            pred_df=data_001.DataFrame()
+            # lets transform and predict
+            pred_obj=PredictPipeline()
+            print(pred_obj)
+            results = pred_obj.predictt(pred_df)
+            return render_template("home.html", results=results[0])
+
+
+if __name__=="__main__":
+    app.run(debug=True,host="0.0.0.0")
         
 
 

@@ -1,0 +1,7 @@
+[2023-12-12 00:23:46,322] 35 root - INFO - Data frame read successfully!
+[2023-12-12 00:23:46,323] 41 root - INFO - Using KFold to split the data..
+[2023-12-12 00:23:46,327] 47 root - INFO - Data Splitted successfully!
+[2023-12-12 00:23:46,327] 52 root - INFO - creating the MLP folder for train and test
+[2023-12-12 00:23:46,328] 56 root - INFO - Saving the respective train and test dataframe to csv...
+[2023-12-12 00:23:46,366] 61 root - INFO - sucessfully saved the train data,test data and raw data as csv's in the MLP directory!
+[2023-12-12 00:23:46,389] 28 root - INFO - Categorical and numerical data identified!

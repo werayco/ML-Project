@@ -1,0 +1,19 @@
+[2023-12-12 05:06:13,674] 13 root - INFO - get request granted
+[2023-12-12 05:06:13,683] 96 werkzeug - WARNING -  * Debugger is active!
+[2023-12-12 05:06:13,689] 96 werkzeug - INFO -  * Debugger PIN: 834-060-160
+[2023-12-12 05:06:15,235] 96 werkzeug - INFO - 127.0.0.1 - - [12/Dec/2023 05:06:15] "[35m[1mGET /predictdata HTTP/1.1[0m" 500 -
+[2023-12-12 05:06:15,933] 96 werkzeug - INFO - 127.0.0.1 - - [12/Dec/2023 05:06:15] "[36mGET /predictdata?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2023-12-12 05:06:15,934] 96 werkzeug - INFO - 127.0.0.1 - - [12/Dec/2023 05:06:15] "[36mGET /predictdata?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2023-12-12 05:06:16,267] 96 werkzeug - INFO - 127.0.0.1 - - [12/Dec/2023 05:06:16] "[36mGET /predictdata?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2023-12-12 05:06:16,521] 96 werkzeug - INFO - 127.0.0.1 - - [12/Dec/2023 05:06:16] "[36mGET /predictdata?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2023-12-12 05:06:57,768] 96 werkzeug - INFO - 127.0.0.1 - - [12/Dec/2023 05:06:57] "[35m[1mGET /predictdata HTTP/1.1[0m" 500 -
+[2023-12-12 05:06:58,065] 96 werkzeug - INFO - 127.0.0.1 - - [12/Dec/2023 05:06:58] "[36mGET /predictdata?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2023-12-12 05:06:58,113] 96 werkzeug - INFO - 127.0.0.1 - - [12/Dec/2023 05:06:58] "[36mGET /predictdata?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2023-12-12 05:06:58,446] 96 werkzeug - INFO - 127.0.0.1 - - [12/Dec/2023 05:06:58] "[36mGET /predictdata?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2023-12-12 05:06:58,715] 96 werkzeug - INFO - 127.0.0.1 - - [12/Dec/2023 05:06:58] "[36mGET /predictdata?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2023-12-12 05:07:00,040] 96 werkzeug - INFO - 127.0.0.1 - - [12/Dec/2023 05:07:00] "[35m[1mGET /predictdata HTTP/1.1[0m" 500 -
+[2023-12-12 05:07:00,337] 96 werkzeug - INFO - 127.0.0.1 - - [12/Dec/2023 05:07:00] "[36mGET /predictdata?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2023-12-12 05:07:00,384] 96 werkzeug - INFO - 127.0.0.1 - - [12/Dec/2023 05:07:00] "[36mGET /predictdata?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2023-12-12 05:07:00,718] 96 werkzeug - INFO - 127.0.0.1 - - [12/Dec/2023 05:07:00] "[36mGET /predictdata?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2023-12-12 05:07:00,983] 96 werkzeug - INFO - 127.0.0.1 - - [12/Dec/2023 05:07:00] "[36mGET /predictdata?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2023-12-12 06:40:11,903] 96 werkzeug - INFO -  * Detected change in 'c:\\users\\lenovo-pc\\videos\\project001\\app.py', reloading

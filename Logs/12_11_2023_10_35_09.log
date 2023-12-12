@@ -1,0 +1,9 @@
+[2023-12-11 10:35:11,416] 12 root - INFO - get request granted
+[2023-12-11 10:35:11,425] 96 werkzeug - WARNING -  * Debugger is active!
+[2023-12-11 10:35:11,430] 96 werkzeug - INFO -  * Debugger PIN: 834-060-160
+[2023-12-11 10:35:14,512] 96 werkzeug - INFO - 127.0.0.1 - - [11/Dec/2023 10:35:14] "[35m[1mPOST /predictor HTTP/1.1[0m" 500 -
+[2023-12-11 10:35:15,105] 96 werkzeug - INFO - 127.0.0.1 - - [11/Dec/2023 10:35:15] "[36mGET /predictor?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2023-12-11 10:35:15,159] 96 werkzeug - INFO - 127.0.0.1 - - [11/Dec/2023 10:35:15] "[36mGET /predictor?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2023-12-11 10:35:15,541] 96 werkzeug - INFO - 127.0.0.1 - - [11/Dec/2023 10:35:15] "[36mGET /predictor?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2023-12-11 10:35:15,789] 96 werkzeug - INFO - 127.0.0.1 - - [11/Dec/2023 10:35:15] "[36mGET /predictor?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+[2023-12-11 10:36:23,246] 96 werkzeug - INFO -  * Detected change in 'c:\\users\\lenovo-pc\\videos\\project001\\source\\pipeline\\predict_pipeline.py', reloading

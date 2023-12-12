@@ -23,17 +23,16 @@ class DataTrans:
         
         try:
             # your_df=pd.read_csv("C:\\Users\\LENOVO-PC\\Videos\\Project001\\car-sales-extended-missing-data.csv")
-            numerical_columns=["Doors","Odometer (KM)","Price"]
-            categorical_column=["Make","Colour"]
+            numerical_columns=['Priceperweek','Population','Monthlyincome','Averageparkingpermonth']
             logging.info("Categorical and numerical data identified!")
             # or we can get your desired by usng
             num_pipeline=Pipeline(steps=[
                 ("imputer",SimpleImputer(strategy="mean")), ("standard",StandardScaler(with_mean=False))
             ])
-            cat_pipeline=Pipeline(steps=[
-                ("imputer",SimpleImputer(strategy="most_frequent")),("encoder",OneHotEncoder()),("standard",StandardScaler(with_mean=False))
-            ])
-            preprocesor=ColumnTransformer([("numerical",num_pipeline,numerical_columns),("categorical",cat_pipeline,categorical_column)])
+            # cat_pipeline=Pipeline(steps=[
+            #     ("imputer",SimpleImputer(strategy="most_frequent")),("encoder",OneHotEncoder()),("standard",StandardScaler(with_mean=False))
+            # ])
+            preprocesor=ColumnTransformer([("numerical",num_pipeline,numerical_columns)])
 
             return preprocesor
         
@@ -46,25 +45,22 @@ class DataTrans:
             train_csv=pd.read_csv(train_path)
             test_csv=pd.read_csv(test_path)
 
-            target_col_name="Price"
-
-            # Below are the targets of each data frame i.e Train and test Df's
-            target_feat_train=train_csv[target_col_name]
-            features_train=train_csv.drop(columns=[target_col_name],axis=1)
-
-            target_feat_test=test_csv[target_col_name]
-            features_test=test_csv.drop(columns=[target_col_name],axis=1)
-
-            # Calling the Process method
             preprocessor_obj=self.Process()
+            target_column = "Numberofweeklyriders"
 
-            # transformming the respective dataframes
-            input_trans_train=preprocessor_obj.fit_transform(train_csv)
-            input_trans_test=preprocessor_obj.transform(test_csv)
+            input_feature_train_df = train_csv.drop(columns=[target_column],axis=1)
+            target_feature_train_df = train_csv[target_column]
 
+            input_feature_test_df=test_csv.drop(columns=[target_column],axis=1)
+            target_feature_test_df=test_csv[target_column]
+
+            input_feature_train_arr=preprocessor_obj.fit_transform(input_feature_train_df)
+            input_feature_test_arr=preprocessor_obj.transform(input_feature_test_df)
+
+           
             # now lets join the data back into features + target but this time we'd use array
-            train_array=np.c_[input_trans_train,np.array(target_feat_train)]
-            test_array=np.c_[input_trans_test,np.array(target_feat_test)]
+            train_array=np.c_[input_feature_train_arr,np.array(train_csv["Numberofweeklyriders"])]
+            test_array=np.c_[input_feature_test_arr,np.array(test_csv["Numberofweeklyriders"])]
 
             # 
             trans_data_pickle(self.transform.savingpath,preprocessor_obj)

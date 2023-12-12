@@ -6,7 +6,7 @@ import dill
 import sys 
 from source.logger import logging
 from source.exception import CustomException
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split,KFold
 import numpy as np
 from source.component.transformation import DataTransConfig
 from source.component.transformation import DataTrans
@@ -31,12 +31,14 @@ class DataIngestion:
     
     def DataIngestionProcess(self):
         try:
-            real_data = pd.read_csv("C:\\Users\\LENOVO-PC\\Videos\\Project001\\car-sales-extended-missing-data.csv")
-            logging.info("just finished reading the raw data")
+            real_data = pd.read_csv("C:\\Users\\LENOVO-PC\\Videos\\Project001\\taxi.csv")
+            logging.info("Data frame read successfully!")
 
-            # now lets use the train test split to  seperate our data into train and test
-            train_data,test_data=train_test_split(real_data,random_state=43,test_size=0.3)
-            logging.info("data sucessfully splited")
+            # Assuming your data has a 'target' column that represents the class for stratification
+
+            logging.info("Using train_test_split to split the data..")
+            train_data,test_data=train_test_split(real_data,random_state=40,test_size=0.3)
+            logging.info("Data Splitted successfully!")
 
             path_train_01_MLP=os.path.dirname(self.config.train_path)
             path_test_01_MLP=os.path.dirname(self.config.test_path)
@@ -45,11 +47,12 @@ class DataIngestion:
             os.makedirs(path_train_01_MLP,exist_ok=True)
             os.makedirs(path_test_01_MLP,exist_ok=True)
 
+            logging.info("Saving the respective train and test dataframe to csv...")
             # now lets save the train data into a csv file
             train_data.to_csv(self.config.train_path,index=False,header=True)
             test_data.to_csv(self.config.test_path,index=False,header=True)
             real_data.to_csv(self.config.real_path,index=False,header=True)
-            logging.info("sucessfully saved the train data,test data and raw data as csv's directory")
+            logging.info("sucessfully saved the train data,test data and raw data as csv's in the MLP directory!")
 
         except Exception as e:
             raise CustomException(e,sys)

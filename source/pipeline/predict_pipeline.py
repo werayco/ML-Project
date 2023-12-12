@@ -1,42 +1,41 @@
-import os,pandas as pd
+import os
+import pandas as pd
 import sys
-import dill
-import sys 
-from source.utils import pickle_opener
+import pickle as plk
+from source.utils import pickle_opener, pickle_loader
 from source.exception import CustomException
 
-
-
-class Predict:
-    def __init__(self) -> None:
+    
+class PredictPipeline:
+    def __init__(self):
         pass
-    def predict(self,features):
+
+    def predictt(self, features):
         try:
-            model_path=pickle_opener("artficats\model.pkl")
-            preprocessor=pickle_opener("artifacts\preprocessor")
-            y_pred=model_path.predict(preprocessor.transform(features))
+            with open("source/component/PickleFiles/BestModel.pkl", "rb") as model_file:
+                model_path = plk.load(model_file)
+            
+            with open("source/component/PickleFiles/Preprocessor.pkl", "rb") as preprocessor_file:
+                preprocessor = plk.load(preprocessor_file)
+            
+            transformed = preprocessor.transform(features)
+            y_pred = model_path.predict(transformed)
             return y_pred
         except Exception as e:
-            raise CustomException(e,sys)
-        
-class DataFrameCreator:
-    def __init__(self,age,sex,name,height):
-        self.age=age
-        self.sex=sex
-        self.height=height
-        self.name=name
+            raise CustomException(e, sys)
+
+class CustomData:
+    def __init__(self, Priceperweek, Population, Monthlyincome, Averageparkingpermonth):  # Adjusted column name here
+        self.Priceperweek = Priceperweek
+        self.Population = Population
+        self.Monthlyincome = Monthlyincome  # Adjusted column name here
+        self.Averageparkingpermonth = Averageparkingpermonth
 
     def DataFrame(self):
-        data={"age":[self.age],
-              "sex":[self.sex],
-              "name":[self.name],
-              "height":[self.height]}
-        return pd.DataFrame(data=data)
-       
-if __name__=="__main__":
-    Predict_Obj=Predict()
-    Predict_Obj_pre=Predict_Obj.predict()
-
-    Df_obj=DataFrameCreator()
-    pd_df=Df_obj.DataFrame()
-        
+        data = {
+            "Priceperweek": [self.Priceperweek],
+            "Population": [self.Population],
+            "Monthlyincome": [self.Monthlyincome],  # Adjusted column name here
+            "Averageparkingpermonth": [self.Averageparkingpermonth]
+        }
+        return pd.DataFrame(data)
