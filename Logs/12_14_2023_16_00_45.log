@@ -1,0 +1,12 @@
+[2023-12-14 16:00:47,037] 13 root - INFO - get request granted
+[2023-12-14 16:00:47,045] 96 werkzeug - WARNING -  * Debugger is active!
+[2023-12-14 16:00:47,050] 96 werkzeug - INFO -  * Debugger PIN: 834-060-160
+[2023-12-14 16:00:49,007] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:00:49] "GET /predictdata HTTP/1.1" 200 -
+[2023-12-14 16:00:49,026] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:00:49] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+[2023-12-14 16:01:13,278] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:01:13] "POST /predictdata HTTP/1.1" 200 -
+[2023-12-14 16:01:13,311] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:01:13] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+[2023-12-14 16:01:48,220] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:01:48] "POST /predictdata HTTP/1.1" 200 -
+[2023-12-14 16:01:48,258] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:01:48] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+[2023-12-14 16:02:02,511] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:02:02] "POST /predictdata HTTP/1.1" 200 -
+[2023-12-14 16:02:02,536] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:02:02] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+[2023-12-14 16:03:00,976] 96 werkzeug - INFO -  * Detected change in 'c:\\users\\lenovo-pc\\videos\\project001\\source\\pipeline\\predict_pipeline.py', reloading

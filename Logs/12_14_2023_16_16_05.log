@@ -1,0 +1,4 @@
+[2023-12-14 16:16:07,630] 13 root - INFO - get request granted
+[2023-12-14 16:16:07,639] 96 werkzeug - WARNING -  * Debugger is active!
+[2023-12-14 16:16:07,645] 96 werkzeug - INFO -  * Debugger PIN: 834-060-160
+[2023-12-14 16:16:29,400] 96 werkzeug - INFO -  * Detected change in 'C:\\Users\\LENOVO-PC\\Videos\\Project001\\source\\component\\transformation.py', reloading

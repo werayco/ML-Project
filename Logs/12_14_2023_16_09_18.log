@@ -1,0 +1,14 @@
+[2023-12-14 16:09:19,752] 13 root - INFO - get request granted
+[2023-12-14 16:09:19,762] 96 werkzeug - WARNING -  * Debugger is active!
+[2023-12-14 16:09:19,768] 96 werkzeug - INFO -  * Debugger PIN: 834-060-160
+[2023-12-14 16:09:21,719] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:09:21] "POST /predictdata HTTP/1.1" 200 -
+[2023-12-14 16:09:21,740] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:09:21] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+[2023-12-14 16:09:32,670] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:09:32] "POST /predictdata HTTP/1.1" 200 -
+[2023-12-14 16:09:32,701] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:09:32] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+[2023-12-14 16:10:44,929] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:10:44] "POST /predictdata HTTP/1.1" 200 -
+[2023-12-14 16:10:44,966] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:10:44] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+[2023-12-14 16:10:57,841] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:10:57] "POST /predictdata HTTP/1.1" 200 -
+[2023-12-14 16:10:57,867] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:10:57] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+[2023-12-14 16:12:53,559] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:12:53] "POST /predictdata HTTP/1.1" 200 -
+[2023-12-14 16:12:53,591] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:12:53] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+[2023-12-14 16:15:20,341] 96 werkzeug - INFO -  * Detected change in 'C:\\Users\\LENOVO-PC\\Videos\\Project001\\source\\component\\transformation.py', reloading

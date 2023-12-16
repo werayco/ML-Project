@@ -1,0 +1,4 @@
+[2023-12-14 16:03:04,500] 13 root - INFO - get request granted
+[2023-12-14 16:03:04,509] 96 werkzeug - WARNING -  * Debugger is active!
+[2023-12-14 16:03:04,514] 96 werkzeug - INFO -  * Debugger PIN: 834-060-160
+[2023-12-14 16:03:10,480] 96 werkzeug - INFO -  * Detected change in 'c:\\users\\lenovo-pc\\videos\\project001\\source\\pipeline\\predict_pipeline.py', reloading

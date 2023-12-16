@@ -41,9 +41,11 @@ class ModelTrainer:
                 "K_Neighbour Regressor":{
                 'n_neighbors':[5,7,9,11]},
                 "Random_forest":{'n_estimators': [100, 200, 300],
-                'max_depth': [None, 5, 10],
+                'max_depth': [None, 5, 10,20],
                 'bootstrap': [True, False]
                 },
+              
+
             }
             model_scores:dict=best_model(x_train,y_train=y_train,x_test=x_test,y_test=y_test,models=models,params=parameters)
 

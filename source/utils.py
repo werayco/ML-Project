@@ -70,7 +70,7 @@ def pickle_opener(model_path):
 def pickle_loader(model_path):
     try:
         with open(model_path,"rb") as file_obj:
-            dill.load(file_obj)
+           return dill.load(file_obj)
     except Exception as e:
         raise CustomException(e,sys)
         

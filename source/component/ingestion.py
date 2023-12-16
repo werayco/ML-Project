@@ -31,14 +31,18 @@ class DataIngestion:
     
     def DataIngestionProcess(self):
         try:
-            real_data = pd.read_csv("C:\\Users\\LENOVO-PC\\Videos\\Project001\\taxi.csv")
+            real_data = pd.read_csv("C:\\Users\\LENOVO-PC\\Videos\\Project001\\Housing.csv")
             logging.info("Data frame read successfully!")
 
             # Assuming your data has a 'target' column that represents the class for stratification
 
             logging.info("Using train_test_split to split the data..")
-            train_data,test_data=train_test_split(real_data,random_state=40,test_size=0.3)
+            kf = KFold(n_splits=5, shuffle=True, random_state=42)  # Adjust the number of splits as needed
+            for train_index, test_index in kf.split(real_data):
+                train_data, test_data = real_data.iloc[train_index], real_data.iloc[test_index]
+
             logging.info("Data Splitted successfully!")
+
 
             path_train_01_MLP=os.path.dirname(self.config.train_path)
             path_test_01_MLP=os.path.dirname(self.config.test_path)

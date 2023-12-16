@@ -12,30 +12,39 @@ class PredictPipeline:
 
     def predictt(self, features):
         try:
-            with open("source/component/PickleFiles/BestModel.pkl", "rb") as model_file:
-                model_path = plk.load(model_file)
-            
-            with open("source/component/PickleFiles/Preprocessor.pkl", "rb") as preprocessor_file:
-                preprocessor = plk.load(preprocessor_file)
-            
+            model_path1 = "source/component/PickleFiles/BestModel.pkl"
+            processor_path = "source/component/PickleFiles/Preprocessor.pkl"
+            model=pickle_loader(model_path=model_path1)
+            preprocessor = pickle_loader(model_path=processor_path)
             transformed = preprocessor.transform(features)
-            y_pred = model_path.predict(transformed)
+            y_pred = model.predict(transformed)
             return y_pred
         except Exception as e:
             raise CustomException(e, sys)
 
 class CustomData:
-    def __init__(self, Priceperweek, Population, Monthlyincome, Averageparkingpermonth):  # Adjusted column name here
-        self.Priceperweek = Priceperweek
-        self.Population = Population
-        self.Monthlyincome = Monthlyincome  # Adjusted column name here
-        self.Averageparkingpermonth = Averageparkingpermonth
+    def __init__(self,area,bedrooms,bathrooms,stories,mainroad,guestroom,basement,furnishingstatus):
+        self.area = area
+        self.bedrooms = bedrooms
+        self.bathrooms = bathrooms  
+        self.stories = stories
+        self.mainroad=mainroad
+        self.guestroom=guestroom
+        self.basement=basement
+        self.furnishingstatus=furnishingstatus
+
+        # numerical_columns=['area','bedrooms','bathrooms','stories']
+        # categorical_columns=['guestroom','basement','mainroad','furnishingstatus']
 
     def DataFrame(self):
         data = {
-            "Priceperweek": [self.Priceperweek],
-            "Population": [self.Population],
-            "Monthlyincome": [self.Monthlyincome],  # Adjusted column name here
-            "Averageparkingpermonth": [self.Averageparkingpermonth]
+            "area": [self.area],
+            "bedrooms": [self.bedrooms],
+            "bathrooms": [self.bathrooms],
+            "stories": [self.stories],
+            "mainroad":[self.mainroad],
+            "guestroom":[self.mainroad],
+            "basement":[self.basement],
+            "furnishingstatus":[self.furnishingstatus]
         }
         return pd.DataFrame(data)

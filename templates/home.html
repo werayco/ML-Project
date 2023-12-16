@@ -1,27 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Car Details Form</title>
+    <title>House Details Form</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-    <form action="{{ url_for('Predictor')}}" method="post" class="car-form">
-        <label for="doors">Priceperweek:</label>
-        <input type="number" id="Priceperweek" name="Priceperweek" required>
-        
-        <label for="odometer">Population:</label>
-        <input type="number" id="Population" name="Population" required placeholder="insert your Population">
+    <form action="{{ url_for('Predictor')}}" method="post" class="vertical-form">
+        <label for="area">Area:</label>
+        <input type="number" id="area" name="area" required placeholder="Insert area">
 
-        <label for="Monthlyincome">Monthlyincome</label>
-        <input type="number" id="Monthlyincome" name="Monthlyincome" required placeholder="insert your Monthlyincome">
+        <label for="bedrooms">Bedrooms:</label>
+        <select id="bedrooms" name="bedrooms" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
 
-        <label for="Averageparkingpermonth">Averageparkingpermonth:</label>
-        <input type="number" id="Averageparkingpermonth" name="Averageparkingpermonth" required placeholder="insert your Avpm">
+        <label for="bathrooms">Bathrooms:</label>
+        <input type="number" id="bathrooms" name="bathrooms" required placeholder="Insert bathrooms">
 
+        <label for="stories">Stories:</label>
+        <input type="number" id="stories" name="stories" required placeholder="Insert stories">
+
+        <label for="guestroom">Guestroom:</label>
+        <select id="guestroom" name="guestroom" required>
+            <option value="yes">yes</option>
+            <option value="no">yo</option>
+        </select>
+
+        <label for="basement">Basement:</label>
+        <select id="basement" name="basement" required>
+            <option type value="yes">yes</option>
+            <option value="no">no</option>
+        </select>
+
+        <label for="mainroad">Main Road:</label>
+        <select id="mainroad" name="mainroad" required>
+            <option value="yes">yes</option>
+            <option value="no">No</option>
+        </select>
+
+        <label for="furnishingstatus">Furnishing Status:</label>
+        <select id="furnishingstatus" name="furnishingstatus" required>
+            <option value="furnished">Furnished</option>
+            <option value="unfurnished">Unfurnished</option>
+            <option value="semi-furnished">Semi-furnished</option>
+        </select>
 
         <input type="submit" value="Submit">
 
-        The price of the car is: {{predicted}}
+        <p>The price of the house is: {{results}}</p>
     </form>
 </body>
 </html>

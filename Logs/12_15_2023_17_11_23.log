@@ -1,0 +1,3 @@
+[2023-12-15 17:11:25,196] 13 root - INFO - get request granted
+[2023-12-15 17:11:25,205] 96 werkzeug - WARNING -  * Debugger is active!
+[2023-12-15 17:11:25,247] 96 werkzeug - INFO -  * Debugger PIN: 834-060-160

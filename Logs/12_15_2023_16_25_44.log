@@ -1,0 +1,6 @@
+[2023-12-15 16:25:46,172] 13 root - INFO - get request granted
+[2023-12-15 16:25:46,180] 96 werkzeug - WARNING -  * Debugger is active!
+[2023-12-15 16:25:46,184] 96 werkzeug - INFO -  * Debugger PIN: 834-060-160
+[2023-12-15 16:25:53,691] 96 werkzeug - INFO - 127.0.0.1 - - [15/Dec/2023 16:25:53] "GET / HTTP/1.1" 200 -
+[2023-12-15 16:26:07,144] 96 werkzeug - INFO - 127.0.0.1 - - [15/Dec/2023 16:26:07] "GET /predictdata HTTP/1.1" 200 -
+[2023-12-15 16:27:15,100] 96 werkzeug - INFO - 127.0.0.1 - - [15/Dec/2023 16:27:15] "GET / HTTP/1.1" 200 -

@@ -1,0 +1,12 @@
+[2023-12-15 16:10:02,669] 13 root - INFO - get request granted
+[2023-12-15 16:10:02,690] 96 werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://172.20.10.2:5000
+[2023-12-15 16:10:02,690] 96 werkzeug - INFO - [33mPress CTRL+C to quit[0m
+[2023-12-15 16:10:02,692] 96 werkzeug - INFO -  * Restarting with stat
+[2023-12-15 16:10:46,526] 96 werkzeug - INFO -  * Restarting with stat
+[2023-12-15 16:11:06,227] 96 werkzeug - INFO -  * Restarting with stat
+[2023-12-15 16:18:57,771] 96 werkzeug - INFO -  * Restarting with stat
+[2023-12-15 16:23:31,923] 96 werkzeug - INFO -  * Restarting with stat
+[2023-12-15 16:23:43,679] 96 werkzeug - INFO -  * Restarting with stat

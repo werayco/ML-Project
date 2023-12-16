@@ -17,23 +17,39 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/predictdata",methods=["GET","POST"])
+# ... (other imports)
+
+@app.route("/predictdata", methods=["GET", "POST"])
 def Predictor():
-        if request.method=="GET":
-            return render_template("index.html")
-        else:
-            data_001=CustomData(Priceperweek=request.form.get("Priceperweek"),Population = request.form.get("Population"),Monthlyincome=request.form.get("Montlyincome"),
-            Averageparkingpermonth=request.form.get("Averageparkingpermonth"))
-            pred_df=data_001.DataFrame()
-            # lets transform and predict
-            pred_obj=PredictPipeline()
-            print(pred_obj)
-            results = pred_obj.predictt(pred_df)
-            return render_template("home.html", results=results[0])
+    if request.method == "POST":
+        # Process the form data and perform prediction
+        area = request.form.get("area")
+        bedrooms = request.form.get("bedrooms")
+        bathrooms = request.form.get("bathrooms")
+        stories = request.form.get("stories")
+        guestroom = request.form.get("guestroom")
+        basement = request.form.get("basement")
+        mainroad = request.form.get("mainroad")  # Fix variable name typo here
+        furnishingstatus = request.form.get("furnishingstatus")
+
+        # Create CustomData object
+        data_001 = CustomData(area, bedrooms, bathrooms, stories, guestroom, basement, mainroad, furnishingstatus)
+        pred_df = data_001.DataFrame()
+
+        # Make predictions
+        pred_obj = PredictPipeline()
+        results = pred_obj.predictt(pred_df)
+
+        return render_template("home.html", results=results[0])
+    else:
+        return render_template("index.html")
+
+
+
 
 
 if __name__=="__main__":
-    app.run(debug=True,host="0.0.0.0")
+    app.run(debug=True,host="0.0.0.0",port=8080)
         
 
 

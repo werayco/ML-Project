@@ -1,0 +1,10 @@
+[2023-12-15 15:58:14,723] 35 root - INFO - Data frame read successfully!
+[2023-12-15 15:58:14,723] 39 root - INFO - Using train_test_split to split the data..
+[2023-12-15 15:58:14,726] 44 root - INFO - Data Splitted successfully!
+[2023-12-15 15:58:14,726] 50 root - INFO - creating the MLP folder for train and test
+[2023-12-15 15:58:14,726] 54 root - INFO - Saving the respective train and test dataframe to csv...
+[2023-12-15 15:58:14,737] 59 root - INFO - sucessfully saved the train data,test data and raw data as csv's in the MLP directory!
+[2023-12-15 15:58:14,751] 28 root - INFO - Categorical and numerical data identified!
+[2023-12-15 15:58:14,853] 67 root - INFO - Succesfully saved Preprocessor Pickle file in the 'PickleFiles' Directory
+[2023-12-15 15:58:55,756] 61 root - INFO - your model Random_forest is instantiated
+[2023-12-15 15:58:55,756] 63 root - INFO - the best model is Random_forest

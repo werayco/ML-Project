@@ -1,0 +1,8 @@
+[2023-12-14 16:06:43,748] 13 root - INFO - get request granted
+[2023-12-14 16:06:43,759] 96 werkzeug - WARNING -  * Debugger is active!
+[2023-12-14 16:06:43,767] 96 werkzeug - INFO -  * Debugger PIN: 834-060-160
+[2023-12-14 16:06:45,668] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:06:45] "POST /predictdata HTTP/1.1" 200 -
+[2023-12-14 16:06:45,708] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:06:45] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+[2023-12-14 16:07:00,545] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:07:00] "POST /predictdata HTTP/1.1" 200 -
+[2023-12-14 16:07:00,588] 96 werkzeug - INFO - 127.0.0.1 - - [14/Dec/2023 16:07:00] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+[2023-12-14 16:08:43,167] 96 werkzeug - INFO -  * Detected change in 'c:\\users\\lenovo-pc\\videos\\project001\\app.py', reloading

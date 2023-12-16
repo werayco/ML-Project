@@ -1,42 +1,49 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
+/* styles.css */
 
-.car-form {
-    width: 300px;
-    margin: 50px auto;
-    background: #fff;
+/* Form container */
+form {
+    max-width: 400px;
+    margin: 20px auto;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
 }
 
+/* Labels */
 label {
     display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
+/* Input fields */
 input[type="number"],
-input[type="text"],
 input[type="submit"] {
-    width: calc(100% - 12px);
-    padding: 6px;
-    margin-bottom: 10px;
-    border-radius: 4px;
+    width: calc(100% - 20px);
+    padding: 8px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
+/* Submit button */
 input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
+    background-color: #007bff;
+    color: #fff;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #0056b3;
+}
+
+/* Result display */
+form::after {
+    content: 'The price of the house is: {{results}}'; /* Change as needed */
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
 }
