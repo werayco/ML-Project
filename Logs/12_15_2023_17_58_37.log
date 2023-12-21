@@ -1,0 +1,10 @@
+[2023-12-15 17:58:39,911] 13 root - INFO - get request granted
+[2023-12-15 17:58:39,927] 96 werkzeug - WARNING -  * Debugger is active!
+[2023-12-15 17:58:40,052] 96 werkzeug - INFO -  * Debugger PIN: 834-060-160
+[2023-12-15 18:01:15,197] 96 werkzeug - INFO - 127.0.0.1 - - [15/Dec/2023 18:01:15] "GET / HTTP/1.1" 200 -
+[2023-12-15 18:01:15,613] 96 werkzeug - INFO - 127.0.0.1 - - [15/Dec/2023 18:01:15] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+[2023-12-15 18:01:15,912] 96 werkzeug - INFO - 127.0.0.1 - - [15/Dec/2023 18:01:15] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+[2023-12-15 18:02:25,087] 96 werkzeug - INFO - 127.0.0.1 - - [15/Dec/2023 18:02:25] "POST /predictdata HTTP/1.1" 200 -
+[2023-12-15 18:02:25,135] 96 werkzeug - INFO - 127.0.0.1 - - [15/Dec/2023 18:02:25] "[33mGET /styles.css HTTP/1.1[0m" 404 -
+[2023-12-15 18:04:24,464] 96 werkzeug - INFO - 127.0.0.1 - - [15/Dec/2023 18:04:24] "POST /predictdata HTTP/1.1" 200 -
+[2023-12-15 18:04:24,503] 96 werkzeug - INFO - 127.0.0.1 - - [15/Dec/2023 18:04:24] "[33mGET /styles.css HTTP/1.1[0m" 404 -

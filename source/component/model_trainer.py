@@ -5,6 +5,7 @@ from catboost import CatBoostRegressor
 from sklearn.neighbors import KNeighborsRegressor
 from dataclasses import dataclass
 import os
+from sklearn.naive_bayes import GaussianNB
 from source.utils import best_model,trans_data_pickle
 from source.exception import CustomException
 import sys
@@ -12,6 +13,12 @@ from source.logger import logging
 from sklearn.svm import SVR
 from sklearn.metrics import r2_score
 import numpy as np
+from sklearn.linear_model import LinearRegression, Ridge, Lasso
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
+from sklearn.svm import SVR
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.naive_bayes import GaussianNB
 
 @dataclass 
 class ModelTrainerConfig:
@@ -24,32 +31,37 @@ class ModelTrainer:
     def ModelTrainerProcess(self,train_arr,test_arr):
 
         try:
-            models={"Linear_Regression":LinearRegression(),
-            "K_Neighbour Regressor":KNeighborsRegressor(n_neighbors=3),"Random_forest":RandomForestRegressor()}
-            x_train,y_train,x_test,y_test=train_arr[:,:-1],train_arr[:,-1],test_arr[:,:-1],test_arr[:,-1]
-            # # Check for NaN values in y_train
-            # nan_rows_train = np.isnan(y_train)
-
-            # # Check for NaN values in y_test
-            # nan_rows_test = np.isnan(y_test)
-
-            # y_trainn = np.nan_to_num(y_train, nan=np.nanmean(y_train))
-            # y_testt = np.nan_to_num(y_test, nan=np.nanmean(y_test))
-
-            parameters={
-                "Linear_Regression":{},
-                "K_Neighbour Regressor":{
-                'n_neighbors':[5,7,9,11]},
-                "Random_forest":{'n_estimators': [100, 200, 300],
-                'max_depth': [None, 5, 10,20],
-                'bootstrap': [True, False]
-                },
-              
-
+            models = {
+                "Linear_Regression": LinearRegression(),
+                "Ridge_Regression": Ridge(),
+                "Lasso_Regression": Lasso(),
+                "K_Neighbors_Regressor": KNeighborsRegressor(),
+                "Random_Forest": RandomForestRegressor(),
+                "Gradient_Boosting_Regressor": GradientBoostingRegressor(),
+                "SVR": SVR(),
+                "Decision_Tree": DecisionTreeRegressor(),
+                "Naive_Bayes": GaussianNB()
             }
+            parameters = {
+                "Linear_Regression": {},
+                "Ridge_Regression": {'alpha': [0.1, 1.0, 10.0]},
+                "Lasso_Regression": {'alpha': [0.1, 1.0, 10.0]},
+                "K_Neighbors_Regressor": {'n_neighbors': [3, 5, 7, 9]},
+                "Random_Forest": {'n_estimators': [100, 200, 300],
+                                'max_depth': [None, 5, 10, 20],
+                                'bootstrap': [True, False]},
+                "Gradient_Boosting_Regressor": {'n_estimators': [50, 100, 200],
+                                                'learning_rate': [0.05, 0.1, 0.2],
+                                                'max_depth': [3, 4, 5]},
+                "SVR": {'kernel': ['linear', 'rbf'],
+                        'C': [0.1, 1, 10],
+                        'gamma': ['scale', 'auto']},
+                "Decision_Tree": {'max_depth': [None, 5, 10, 20]},
+                "Naive_Bayes": {}  # GaussianNB does not have tunable parameters
+            }
+            x_train,y_train,x_test,y_test=train_arr[:,:-1],train_arr[:,-1],test_arr[:,:-1],test_arr[:,-1]
+
             model_scores:dict=best_model(x_train,y_train=y_train,x_test=x_test,y_test=y_test,models=models,params=parameters)
-
-
 
             # best model score from the dict
             best_model_score=max(sorted(list(model_scores.values())))

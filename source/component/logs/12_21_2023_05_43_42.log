@@ -1,0 +1,10 @@
+[2023-12-21 05:44:31,800] 35 root - INFO - Data frame read successfully!
+[2023-12-21 05:44:31,800] 39 root - INFO - Using train_test_split to split the data..
+[2023-12-21 05:44:31,956] 44 root - INFO - Data Splitted successfully!
+[2023-12-21 05:44:31,956] 50 root - INFO - creating the MLP folder for train and test
+[2023-12-21 05:44:31,957] 54 root - INFO - Saving the respective train and test dataframe to csv...
+[2023-12-21 05:44:32,158] 59 root - INFO - sucessfully saved the train data,test data and raw data as csv's in the MLP directory!
+[2023-12-21 05:44:32,171] 28 root - INFO - Categorical and numerical data identified!
+[2023-12-21 05:44:32,504] 67 root - INFO - Succesfully saved Preprocessor Pickle file in the 'PickleFiles' Directory
+[2023-12-21 05:45:26,481] 73 root - INFO - your model Gradient_Boosting_Regressor is instantiated
+[2023-12-21 05:45:26,481] 75 root - INFO - the best model is Gradient_Boosting_Regressor
