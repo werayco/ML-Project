@@ -1,4 +1,4 @@
-name: spamdetector-workflow
+name: workflow
 on: push
 jobs:
   run:
